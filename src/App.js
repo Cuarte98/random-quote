@@ -20,18 +20,30 @@ class App extends Component {
     do{
       quote = this.state.quotes[Math.floor(Math.random() * this.state.quotes.length)];
     } while(quote.id === this.state.currentQuote.id)
+
+    quote = Object.assign(quote, {tweetLink: this.tweetQuote(quote.quote, quote.author)})
+    console.log(quote)
     this.setState({currentQuote: {...quote}})
+  }
+
+  tweetQuote = (text, author) => {
+    let url = 'https://twitter.com/intent/tweet?';
+    let quote = `"${text}" -${author}`;
+    url = url.concat('text=', escape(quote))
+    return url
   }
 
   componentWillMount(){
     this.randomQuote()
   }
+
+  componentDidUpdate(){}
   
   render() {
-    const { quote, author } = this.state.currentQuote;
+    const { quote, author, tweetLink } = this.state.currentQuote;
     return (
       <div className="App">
-        <QuoteBox random={this.randomQuote} author={author} quote={quote}/>
+        <QuoteBox random={this.randomQuote} author={author} quote={quote} tweet={tweetLink}/>
       </div>
     );
   }
