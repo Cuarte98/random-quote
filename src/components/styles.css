@@ -1,0 +1,25 @@
+#text {
+    font-size: 2em;
+}
+
+#quote-box {
+    position: relative;
+    min-width: 300px;
+    max-width: 600px;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: 0.5s
+}
+
+#author {
+    text-align: right;
+    margin-bottom: 5px;
+}
+
+.footer {
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+}

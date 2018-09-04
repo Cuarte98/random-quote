@@ -1,0 +1,15 @@
+.App {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #9b59b6;
+  height: 100vh;
+  font-family: 'Roboto';
+
+}
+
+#quote-box {
+  background: white;
+  padding: 15px 30px;
+}
